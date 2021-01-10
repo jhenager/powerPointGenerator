@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace powerPointGenerator
+namespace powerPointGenerator.Forms
 {
     public partial class Form1 : Form
     {
@@ -25,6 +25,12 @@ namespace powerPointGenerator
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void submit_Click(object sender, EventArgs e)
+        {
+           var response = Shared.RestHelper.Get();
+            textBox1.Text = await response;
         }
     }
 }
