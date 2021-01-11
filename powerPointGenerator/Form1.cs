@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.PowerPoint;
 using Application = Microsoft.Office.Interop.PowerPoint.Application;
@@ -32,7 +25,6 @@ namespace powerPointGenerator.Forms
         private async void submit_Click(object sender, EventArgs e)
         {
             var response = await Shared.RestHelper.Get((titleBox.Text + " " + bodyBox.Text));
-            var beautifiedResponse = Shared.RestHelper.BeautifyJson(response);
             var jo = Newtonsoft.Json.Linq.JObject.Parse(response);
             var imgId = jo["items"][0]["link"].ToString();
             var imgId2 = jo["items"][1]["link"].ToString();
@@ -43,7 +35,6 @@ namespace powerPointGenerator.Forms
             var imgId7 = jo["items"][6]["link"].ToString();
             var imgId8 = jo["items"][7]["link"].ToString();
             var imgId9 = jo["items"][8]["link"].ToString();
-            textBox1.Text = jo.ToString();
             if (imgId != null) { pictureBox1.ImageLocation = imgId; };
             if (imgId2 != null) { pictureBox2.ImageLocation = imgId2; };
             if (imgId3 != null) { pictureBox3.ImageLocation = imgId3; };
@@ -53,12 +44,10 @@ namespace powerPointGenerator.Forms
             if (imgId7 != null) { pictureBox7.ImageLocation = imgId7; };
             if (imgId8 != null) { pictureBox8.ImageLocation = imgId8; };
             if (imgId9 != null) { pictureBox9.ImageLocation = imgId9; };
-
-
-
-          
+     
         }
 
+     
         private void button1_Click(object sender, EventArgs e)
         {
             Application pptApplication = new Application();
@@ -80,18 +69,23 @@ namespace powerPointGenerator.Forms
             objText = slide.Shapes[1].TextFrame.TextRange;
             objText.Text = titleBox.Text;
             objText.Font.Name = "Arial";
-            objText.Font.Size = 50;
+            objText.Font.Size = 60;
 
             // Add body
             objText = slide.Shapes[2].TextFrame.TextRange;
             objText.Text = bodyBox.Text;
             objText.Font.Name = "Arial";
-            objText.Font.Size = 15;
+            objText.Font.Size = 30;
 
             Microsoft.Office.Interop.PowerPoint.Shape sheetShape = slides[1].Shapes[1];
             // Add Picture
             var img1 = slides[1].Shapes.AddPicture(pictureBox1.ImageLocation, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoTrue, sheetShape.Left+300, sheetShape.Top+300, sheetShape.Height-500, sheetShape.Width+200);
             img1.ScaleHeight(1,Microsoft.Office.Core.MsoTriState.msoTrue);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

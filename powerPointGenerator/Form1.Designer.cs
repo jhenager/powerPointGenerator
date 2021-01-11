@@ -35,7 +35,6 @@ namespace powerPointGenerator.Forms
             this.bodyBox = new System.Windows.Forms.TextBox();
             this.bodyLabel = new System.Windows.Forms.Label();
             this.submit = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -102,21 +101,13 @@ namespace powerPointGenerator.Forms
             // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(202, 378);
+            this.submit.Location = new System.Drawing.Point(102, 389);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(75, 23);
+            this.submit.Size = new System.Drawing.Size(94, 43);
             this.submit.TabIndex = 5;
-            this.submit.Text = "Submit";
+            this.submit.Text = "Find Images";
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(27, 449);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 36);
-            this.textBox1.TabIndex = 6;
             // 
             // pictureBox1
             // 
@@ -192,11 +183,11 @@ namespace powerPointGenerator.Forms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1100, 563);
+            this.button1.Location = new System.Drawing.Point(54, 479);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(195, 40);
             this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
+            this.button1.Text = "Create PowerPoint Slide";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -204,7 +195,7 @@ namespace powerPointGenerator.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 664);
+            this.ClientSize = new System.Drawing.Size(1213, 664);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -215,7 +206,6 @@ namespace powerPointGenerator.Forms
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.bodyLabel);
             this.Controls.Add(this.bodyBox);
@@ -247,7 +237,6 @@ namespace powerPointGenerator.Forms
         private System.Windows.Forms.TextBox bodyBox;
         private System.Windows.Forms.Label bodyLabel;
         private System.Windows.Forms.Button submit;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
