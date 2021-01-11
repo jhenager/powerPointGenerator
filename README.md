@@ -11,7 +11,7 @@ _This application allows the user to input a title and body text for a PowerPoin
 ### Specifications
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| The program will allow the user to enter a slide title | Title: "Japanese Sake" | Japanese |
+| The program will allow the user to enter a slide title | Title: "Japanese Sake" | Japanese Sake |
 | The program will allow the user to enter slide body text | Body: "Japanese Sake is the best drink." | * Japanese sake is the best drink. |
 | The program will allow the user to click a button that make a Google API query | Button: Find Pictures |  |
 | The program will find 9 images based on the text entered by the user | Title: "Japanese Sake" | Pictures of Sake and Japan |
