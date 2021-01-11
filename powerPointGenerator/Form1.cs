@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Google.Apis.Customsearch.v1;
-using Google.Apis.Customsearch.v1.Data;
-using Google.Apis.Services;
-
+using Microsoft.Office.Interop.PowerPoint;
+using Application = Microsoft.Office.Interop.PowerPoint.Application;
 
 namespace powerPointGenerator.Forms
 {
@@ -59,6 +57,41 @@ namespace powerPointGenerator.Forms
 
 
           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application pptApplication = new Application();
+
+            Microsoft.Office.Interop.PowerPoint.Slides slides;
+            Microsoft.Office.Interop.PowerPoint._Slide slide;
+            Microsoft.Office.Interop.PowerPoint.TextRange objText;
+
+            // Create the Presentation File
+            Presentation pptPresentation = pptApplication.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
+
+            Microsoft.Office.Interop.PowerPoint.CustomLayout customLayout = pptPresentation.SlideMaster.CustomLayouts[Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutText];
+
+            // Create new Slide
+            slides = pptPresentation.Slides;
+            slide = slides.AddSlide(1, customLayout);
+
+            // Add title
+            objText = slide.Shapes[1].TextFrame.TextRange;
+            objText.Text = titleBox.Text;
+            objText.Font.Name = "Arial";
+            objText.Font.Size = 50;
+
+            // Add body
+            objText = slide.Shapes[2].TextFrame.TextRange;
+            objText.Text = bodyBox.Text;
+            objText.Font.Name = "Arial";
+            objText.Font.Size = 15;
+
+            Microsoft.Office.Interop.PowerPoint.Shape sheetShape = slides[1].Shapes[1];
+            // Add Picture
+            var img1 = slides[1].Shapes.AddPicture(pictureBox1.ImageLocation, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoTrue, sheetShape.Left+300, sheetShape.Top+300, sheetShape.Height-500, sheetShape.Width+200);
+            img1.ScaleHeight(1,Microsoft.Office.Core.MsoTriState.msoTrue);
         }
     }
 }
